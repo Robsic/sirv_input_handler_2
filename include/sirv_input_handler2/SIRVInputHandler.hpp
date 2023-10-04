@@ -39,6 +39,7 @@ class SIRVInputHandler
   void timer_callback()
   {
     std::stringstream sstm;
+    int i = 0;
     for (auto joystick : js)
     {
       if (joystick->sample(&event))
@@ -46,12 +47,12 @@ class SIRVInputHandler
         if (event.isButton())
         {
 
-          sstm << "Button " << (uint)event.number << " value " << event.value;
+          sstm << "js" << i << " Button " << (uint)event.number << " value " << event.value;
           node->publish(sstm.str());
         }
         else if (event.isAxis())
         {
-          sstm << "Axis " << (uint)event.number << " is at position " << event.value;
+          sstm << "js" << i << " Axis " << (uint)event.number << " is at position " << event.value;
           node->publish(sstm.str());
         }
       }
