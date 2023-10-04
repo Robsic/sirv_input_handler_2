@@ -56,6 +56,7 @@ class SIRVInputHandler
           node->publish(sstm.str());
         }
       }
+      i++;
     }
   }
 
